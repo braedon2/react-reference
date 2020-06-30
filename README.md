@@ -14,9 +14,8 @@ Used to set the initial state of the component
 
 ### `render`
 
-Describes the type of DOM node you want to render. It must be a pure function 
-so it can't have any side effects.
-
+* used: to describes the type of DOM node you want to render. It must be a pure 
+function so it can't have any side effects.
 * invoked: when the component is first added to the DOM and any time its state
 changes. 
 
@@ -36,8 +35,8 @@ as arguments
 
 ### `componentWillUnmount`
 
-* invoked: when the component is about to be removed from the DOM.
 * used: for cleaning up and removing listeners
+* invoked: when the component is about to be removed from the DOM.
 
 ### Example
 

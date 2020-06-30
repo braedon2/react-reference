@@ -15,7 +15,7 @@ Used to set the initial state of the component
 ### `render`
 
 Describes the type of DOM node you want to render. It must be a pure function 
-so it can't have any side effects
+so it can't have any side effects.
 
 * invoked: when the component is first added to the DOM and any time its state
 changes. 
@@ -23,8 +23,7 @@ changes.
 
 ### `componentDidMount`
 
-* used: to make Ajax requests and set the state of the component, and set up
-  listeners
+* used: to make Ajax requests, and set up listeners
 * invoked: only one time when the component is first mounted to the DOM.
 
 ### `componentDidUpdate`

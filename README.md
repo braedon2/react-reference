@@ -78,3 +78,51 @@ class Repos extends React.Component {
 ```
 
 
+## Controlled vs Uncontrolled Components
+
+This terminology is common when dealing with forms.  
+In a **controlled** component the form state lives inside of the component's 
+state. 
+In an **uncontrolled** component you don't have any component state, the 
+form state lives inside the DOM
+
+Using a text input as an example, setting and accessing the input field is done
+through the components state.
+
+```jsx
+class Form extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      email: ''
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleChange(e) {
+    this.setState({
+      email: e.target.value
+    })
+  }
+  handleSubmit() {
+    alert('The email is ' + this.state.email)
+  }
+  render() {
+    return (
+      <div>
+        <pre>The email is {this.state.email}</pre>
+        <br />
+        <input
+          type='text'
+          placeholder='Email'
+          value={this.state.email}
+          onChange={this.handleChange}
+        />
+        <button onClick={this.handleSubmit}>Submit</button>
+      </div>
+    )
+  }
+}
+```

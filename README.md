@@ -1,10 +1,11 @@
 # react-reference
 
-Reference of the material presented in Tyler McGinnis' course on react
+Reference of the material presented in Tyler McGinnis' course on react, a 
+JavaScript library for building user interfaces.
 
 ## Component Lifecycle
 
-Here is a list of common lifecycle methods, and what they're used for.
+This is a list of common lifecycle methods, and what they're used for.
 In React, your view is a function of your state. For this reason, lifecycle 
 methods are only concerned with state and React takes care of the rendering.
 
@@ -126,3 +127,41 @@ class Form extends React.Component {
   }
 }
 ```
+
+## Children in React
+
+Whatever is between the opening and closing tag of an element will be 
+accessible inside of the component via `props.children`
+
+```jsx
+function Header({ children }) {
+  <h1>
+    {children}
+  </h1>
+}
+
+<Header>Title!</Header>
+```
+
+## Default Props
+
+### Class Component
+
+Add a static property of `defaultProps`
+
+```jsx
+StarRating.defaultProps = {
+  color: '#ECB244'
+}
+```
+
+### Function Component
+
+Use ES6 default parameters
+
+```jsx
+function StarRating({ color = '#ECB244' }) {
+  ...
+}
+```
+

@@ -165,3 +165,51 @@ function StarRating({ color = '#ECB244' }) {
 }
 ```
 
+## Higher Order Components
+
+A higher order componenent:
+* Is a component
+* Takes in a component as an argument
+* Returns a new component
+* The component it returns can render the original component that was passed in
+
+```jsx
+function higherOrderComponent (Component) {
+  return class extends React.Component {
+    render() {
+      return <Component />
+    }
+  }
+}
+```
+
+### Example
+
+The following higher order component adds hovering state to the passed 
+component and allows the passed propname to be renamed
+
+```jsx
+function withHover(Component, propName = 'hovering') {
+  return class WithHover extends React.Component {
+    state = { hovering: false }
+    mouseOver = () => this.setState({ hovering: true })
+    mouseOut = () => this.setState({ hovering: false })
+    render() {
+      const props = {
+        [propName]: this.state.hovering,
+        ...this.props // pass through original props
+      }
+
+      return (
+        <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+          <Component {...props} />
+        </div>
+      );
+    }
+  }
+}
+```
+
+## React Router
+
+* passing query string to Link component

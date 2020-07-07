@@ -210,6 +210,44 @@ function withHover(Component, propName = 'hovering') {
 }
 ```
 
+## Render Prop
+
+Allows functionality to be added to a component by wrapping it in the `render `
+prop of another component. The `render ` prop is a function that the wrapper 
+component uses to pass information to the wrapped component.
+
+```jsx
+class WrapperComponent extends React.Component {
+  // state and state-altering functions ...
+  
+  render() {
+    return (
+      <div>
+        {this.props.render(this.state.data)}
+      </div>
+    )
+  }
+}
+
+function App() {
+  return (
+    <WrapperComponent render={(data) => 
+      <WrappedComponent data={data} />
+    }/>
+  )
+}
+```
+
+The `children` prop can be used in place of a render prop so that wrapping
+your component will look like this:
+
+```jsx
+<WrapperComponent>
+  {(data) => <WrappedComponent data={data} />}
+</WrapperComponent>
+```
+
+
 ## React Router
 
 * passing query string to Link component

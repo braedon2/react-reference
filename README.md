@@ -1,4 +1,20 @@
-# react-reference
+
+
+- [Updating state](#updating-state)
+- [Rendering Lists](#rendering-lists)
+- [Component Lifecycle](#component-lifecycle)
+- [Controlled vs Uncontrolled Components](#controlled-vs-uncontrolled-components)
+- [Children in React](#children-in-react)
+- [Default Props](#default-props)
+- [Higher Order Components](#higher-order-components)
+- [Render Prop](#render-prop)
+- [Contexts](#contexts)
+- [React Router](#react-router)
+  - [Query Strings](#query-strings)
+  - [404 Page](#404-page)
+- [Code Splitting](#code-splitting)
+
+# react-reference <!-- omit in toc -->
 
 Reference of the material presented in Tyler McGinnis' course on react, a 
 JavaScript library for building user interfaces.
@@ -25,7 +41,7 @@ this.setState((state) => {
 })
 ```
 
-### Update method caveats
+### Update method caveats <!-- omit in toc -->
 
 When making an update method there must be following line in the constructor
 
@@ -64,11 +80,11 @@ This is a list of common lifecycle methods, and what they're used for.
 In React, your view is a function of your state. For this reason, lifecycle 
 methods are only concerned with state and React takes care of the rendering.
 
-### `constructor`
+### `constructor` <!-- omit in toc -->
 
 Used to set the initial state of the component
 
-### `render`
+### `render` <!-- omit in toc -->
 
 * used to describes the type of DOM node you want to render. It must be a pure 
 function so it can't have any side effects.
@@ -76,12 +92,12 @@ function so it can't have any side effects.
 changes. 
 
 
-### `componentDidMount`
+### `componentDidMount` <!-- omit in toc -->
 
 * used to make Ajax requests, and set up listeners
 * invoked only one time when the component is first mounted to the DOM.
 
-### `componentDidUpdate`
+### `componentDidUpdate` <!-- omit in toc -->
 
 * used to re-fech data without having to remount the component
 * invoked after the component's local state changes or after it receives new
@@ -89,12 +105,12 @@ props. It is not invoked on the initial render
 * passed the component's previous props and the component's previous state
 as arguments
 
-### `componentWillUnmount`
+### `componentWillUnmount` <!-- omit in toc -->
 
 * used for cleaning up and removing listeners
 * invoked when the component is about to be removed from the DOM.
 
-### Example
+### Example <!-- omit in toc -->
 
 Here is an example for how to handle updating a component via props
 
@@ -108,7 +124,7 @@ class Repos extends React.Component {
     }
   }
   componentDidMount() {
-    fetchRepos(this.props.language)
+    fetchRepos(this.props.language) 
       .then((repos) => {
         this.setState({ repos })
       })
@@ -200,7 +216,7 @@ function Header({ children }) {
 
 ## Default Props
 
-### Class Component
+### Class Component <!-- omit in toc -->
 
 Add a static property of `defaultProps`
 
@@ -210,7 +226,7 @@ StarRating.defaultProps = {
 }
 ```
 
-### Function Component
+### Function Component <!-- omit in toc -->
 
 Use ES6 default parameters
 
@@ -238,7 +254,7 @@ function higherOrderComponent (Component) {
 }
 ```
 
-### Example
+### Example <!-- omit in toc -->
 
 The following higher order component adds hovering state to the passed 
 component and allows the passed propname to be renamed
@@ -306,7 +322,7 @@ function App() {
 }
 ```
 
-### Example
+### Example <!-- omit in toc -->
 
 ```jsx
 // wrapper component
@@ -356,7 +372,7 @@ our component tree
 `Consumer` allows any component in the component tree that needs that data 
 to be able to subscribe to it
 
-### Using Provider
+### Using Provider <!-- omit in toc -->
 
 pass it a `value` prop. This will be the data that will be available to any
 of its children that need to consume it
@@ -367,7 +383,7 @@ of its children that need to consume it
 </MyContext.Provider>
 ```
 
-### Using Consumer
+### Using Consumer <!-- omit in toc -->
 
 to access the data passed as a `value` prop to `Provider`, use a render prop
 
@@ -380,7 +396,7 @@ to access the data passed as a `value` prop to `Provider`, use a render prop
 </MyContext.Consumer>
 ```
 
-### Updating Context State
+### Updating Context State <!-- omit in toc -->
 
 The following example demonstrates how to do this. Now a `Consumer` can 
 pass `toggleLocale` to something like a button.
@@ -502,11 +518,4 @@ function App () {
 }
 ```
 
-
-## Class Fields
-class field proposal, how to use it with webpack/babel
-TODO: understand lexical binding of `this` in arrow functions
-performance consideratoins with class fields
-
-## Hosting With Netflify
 

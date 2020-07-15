@@ -1,5 +1,10 @@
 
 
+# react-reference <!-- omit in toc -->
+
+Reference of the material presented in Tyler McGinnis' course on react, a 
+JavaScript library for building user interfaces.
+
 - [Updating state](#updating-state)
 - [Rendering Lists](#rendering-lists)
 - [Component Lifecycle](#component-lifecycle)
@@ -13,11 +18,6 @@
   - [Query Strings](#query-strings)
   - [404 Page](#404-page)
 - [Code Splitting](#code-splitting)
-
-# react-reference <!-- omit in toc -->
-
-Reference of the material presented in Tyler McGinnis' course on react, a 
-JavaScript library for building user interfaces.
 
 ## Updating state
 
